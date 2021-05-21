@@ -47,7 +47,7 @@ console.log("The value of PORT is by env:", process.env.PORT);
   
 
 // API Rought
-app.use("/api", require("./api/routes/sample"));
+app.use("/api", require("./api/routes/_sample"));
 
 
 

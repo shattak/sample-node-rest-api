@@ -1,8 +1,8 @@
 
-// const userDB = require("../models/sample");
+// const userDB = require("../models/_sample");
 
 exports.post_sample = (req, res, next) => {
   res.status(200).json({
-      res : "sample"
+      res : "remove _sample"
   })
 };
