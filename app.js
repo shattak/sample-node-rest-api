@@ -2,26 +2,18 @@
 const express = require("express");
 const app = express();
 
-
-
 // express json Parser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
-
-
 //path
 const path = require("path");
-
 
 //dotenv
 require("dotenv").config({ path: ".env" });
 
 // console.log(process.env);
 console.log("The value of PORT is by env:", process.env.PORT);
-
-
 
 // //database
 // mongoose = require("mongoose");
@@ -42,47 +34,26 @@ console.log("The value of PORT is by env:", process.env.PORT);
 //     console.log(" Connection Establishment error \n DB NOT Connected...");
 //     console.log(errors);
 //   });
-  
-  
-  
 
 // API Rought
-app.use("/api", require("./api/routes/_sample"));
-
-
-
-
+app.use("/api", require("./api/routes/_route"));
 
 // Serve Public static files
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-
-
-
-
-
-// main rought 
+// main rought
 app.get("*", (req, res) => {
   res.status(200).json({
     mag: "NODE REST API",
   });
 });
 
-
-
-
-
-
 //error handeller
 app.use((req, res, next) => {
-  const error = new Error("Path Not found please read the docs");
+  const error = new Error("Path Not Found Please Read The Docs");
   error.status = 404;
   next(error);
 });
-
-
-
-
 
 // error handeller
 app.use((error, req, res, next) => {
@@ -93,9 +64,5 @@ app.use((error, req, res, next) => {
     },
   });
 });
-
-
-
-
 
 module.exports = app;
